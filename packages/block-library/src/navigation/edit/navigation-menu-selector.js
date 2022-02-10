@@ -19,7 +19,7 @@ export default function NavigationMenuSelector( {
 	clientId,
 	onSelect,
 	onCreateNew,
-	canUserCreateNavigation = false,
+	canUserCreateNavigationMenu = false,
 	canUserSwitchNavigation = false,
 } ) {
 	const {
@@ -34,7 +34,7 @@ export default function NavigationMenuSelector( {
 		blocks,
 		navigationMenuTitle = null
 	) => {
-		if ( ! canUserCreateNavigation ) {
+		if ( ! canUserCreateNavigationMenu ) {
 			return;
 		}
 
@@ -50,7 +50,7 @@ export default function NavigationMenuSelector( {
 	);
 
 	const showSelectMenus =
-		( canUserSwitchNavigation || canUserCreateNavigation ) &&
+		( canUserSwitchNavigation || canUserCreateNavigationMenu ) &&
 		( navigationMenus?.length || hasClassicMenus );
 
 	if ( ! showSelectMenus ) {
@@ -61,7 +61,7 @@ export default function NavigationMenuSelector( {
 		<>
 			<ExistingMenusOptions
 				showNavigationMenus={ canUserSwitchNavigation }
-				showClassicMenus={ canUserCreateNavigation }
+				showClassicMenus={ canUserCreateNavigationMenu }
 				navigationMenus={ navigationMenus }
 				classicMenus={ classicMenus }
 				onSelectNavigationMenu={ onSelect }
@@ -72,7 +72,7 @@ export default function NavigationMenuSelector( {
 				actionLabel={ __( "Switch to '%s'" ) }
 			/>
 
-			{ canUserCreateNavigation && (
+			{ canUserCreateNavigationMenu && (
 				<MenuGroup label={ __( 'Tools' ) }>
 					<MenuItem onClick={ onCreateNew }>
 						{ __( 'Create new menu' ) }

@@ -227,8 +227,8 @@ function Navigation( {
 		hasResolvedCanUserUpdateNavigationEntity,
 		canUserDeleteNavigationEntity,
 		hasResolvedCanUserDeleteNavigationEntity,
-		canUserCreateNavigation,
-		hasResolvedCanUserCreateNavigation,
+		canUserCreateNavigationMenu,
+		hasResolvedCanUserCreateNavigationMenu,
 	} = useNavigationMenu( ref );
 
 	const navRef = useRef();
@@ -369,8 +369,8 @@ function Navigation( {
 
 			if (
 				! ref &&
-				hasResolvedCanUserCreateNavigation &&
-				! canUserCreateNavigation
+				hasResolvedCanUserCreateNavigationMenu &&
+				! canUserCreateNavigationMenu
 			) {
 				showCantCreateNotice();
 			}
@@ -380,8 +380,8 @@ function Navigation( {
 		isInnerBlockSelected,
 		canUserUpdateNavigationEntity,
 		hasResolvedCanUserUpdateNavigationEntity,
-		canUserCreateNavigation,
-		hasResolvedCanUserCreateNavigation,
+		canUserCreateNavigationMenu,
+		hasResolvedCanUserCreateNavigationMenu,
 		ref,
 	] );
 
@@ -496,8 +496,8 @@ function Navigation( {
 											onClose();
 										} }
 										onCreateNew={ startWithEmptyMenu }
-										canUserCreateNavigation={
-											canUserCreateNavigation
+										canUserCreateNavigationMenu={
+											canUserCreateNavigationMenu
 										}
 										canUserSwitchNavigation={
 											canSwitchNavigationMenu
@@ -675,10 +675,12 @@ function Navigation( {
 								hasResolvedNavigationMenus
 							}
 							clientId={ clientId }
-							canUserCreateNavigation={ canUserCreateNavigation }
+							canUserCreateNavigationMenu={
+								canUserCreateNavigationMenu
+							}
 						/>
 					) }
-					{ ! hasResolvedCanUserCreateNavigation ||
+					{ ! hasResolvedCanUserCreateNavigationMenu ||
 						( ! isEntityAvailable && ! isPlaceholderShown && (
 							<PlaceholderPreview isLoading />
 						) ) }

@@ -21,7 +21,7 @@ export default function NavigationPlaceholder( {
 	onFinish,
 	canSwitchNavigationMenu,
 	hasResolvedNavigationMenus,
-	canUserCreateNavigation = false,
+	canUserCreateNavigationMenu = false,
 } ) {
 	const createNavigationMenu = useCreateNavigationMenu( clientId );
 
@@ -29,7 +29,7 @@ export default function NavigationPlaceholder( {
 		blocks,
 		navigationMenuTitle = null
 	) => {
-		if ( ! canUserCreateNavigation ) {
+		if ( ! canUserCreateNavigationMenu ) {
 			return;
 		}
 
@@ -60,7 +60,7 @@ export default function NavigationPlaceholder( {
 	const hasNavigationMenus = !! navigationMenus?.length;
 
 	const showSelectMenus =
-		( canSwitchNavigationMenu || canUserCreateNavigation ) &&
+		( canSwitchNavigationMenu || canUserCreateNavigationMenu ) &&
 		( hasNavigationMenus || hasMenus );
 
 	return (
@@ -115,7 +115,7 @@ export default function NavigationPlaceholder( {
 													)
 												}
 												showClassicMenus={
-													canUserCreateNavigation
+													canUserCreateNavigationMenu
 												}
 											/>
 										) }
@@ -124,7 +124,7 @@ export default function NavigationPlaceholder( {
 								</>
 							) : undefined }
 
-							{ canUserCreateNavigation && (
+							{ canUserCreateNavigationMenu && (
 								<Button
 									variant="tertiary"
 									onClick={ onCreateEmptyMenu }

@@ -119,6 +119,11 @@ async function selectClassicMenu( optionText ) {
 		`//*[contains(@class, 'components-menu-item__item')][ text()="${ optionText }" ]`
 	);
 	await theOption.click();
+
+	const blockSelector = `[aria-label="Editor content"][role="region"] [aria-label="Block: Custom Link"]`;
+
+	// Wait for the Link block to appear...
+	await page.waitForSelector( blockSelector );
 }
 
 const PLACEHOLDER_ACTIONS_CLASS = 'wp-block-navigation-placeholder__actions';

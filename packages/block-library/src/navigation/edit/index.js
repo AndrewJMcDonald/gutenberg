@@ -223,10 +223,10 @@ function Navigation( {
 		hasResolvedNavigationMenus,
 		navigationMenus,
 		navigationMenu,
-		canUserUpdateNavigationEntity,
-		hasResolvedCanUserUpdateNavigationEntity,
-		canUserDeleteNavigationEntity,
-		hasResolvedCanUserDeleteNavigationEntity,
+		canUserUpdateNavigationMenu,
+		hasResolvedCanUserUpdateNavigationMenu,
+		canUserDeleteNavigationMenu,
+		hasResolvedCanUserDeleteNavigationMenu,
 		canUserCreateNavigationMenu,
 		hasResolvedCanUserCreateNavigationMenu,
 	} = useNavigationMenu( ref );
@@ -361,8 +361,8 @@ function Navigation( {
 
 		if ( isSelected || isInnerBlockSelected ) {
 			if (
-				hasResolvedCanUserUpdateNavigationEntity &&
-				! canUserUpdateNavigationEntity
+				hasResolvedCanUserUpdateNavigationMenu &&
+				! canUserUpdateNavigationMenu
 			) {
 				showCantEditNotice();
 			}
@@ -378,8 +378,8 @@ function Navigation( {
 	}, [
 		isSelected,
 		isInnerBlockSelected,
-		canUserUpdateNavigationEntity,
-		hasResolvedCanUserUpdateNavigationEntity,
+		canUserUpdateNavigationMenu,
+		hasResolvedCanUserUpdateNavigationMenu,
 		canUserCreateNavigationMenu,
 		hasResolvedCanUserCreateNavigationMenu,
 		ref,
@@ -648,12 +648,12 @@ function Navigation( {
 				</InspectorControls>
 				{ isEntityAvailable && (
 					<InspectorControls __experimentalGroup="advanced">
-						{ hasResolvedCanUserUpdateNavigationEntity &&
-							canUserUpdateNavigationEntity && (
+						{ hasResolvedCanUserUpdateNavigationMenu &&
+							canUserUpdateNavigationMenu && (
 								<NavigationMenuNameControl />
 							) }
-						{ hasResolvedCanUserDeleteNavigationEntity &&
-							canUserDeleteNavigationEntity && (
+						{ hasResolvedCanUserDeleteNavigationMenu &&
+							canUserDeleteNavigationMenu && (
 								<NavigationMenuDeleteControl
 									onDelete={ startWithEmptyMenu }
 								/>

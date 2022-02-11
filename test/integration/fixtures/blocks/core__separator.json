@@ -3,8 +3,10 @@
 		"clientId": "_clientId_0",
 		"name": "core/separator",
 		"isValid": true,
-		"attributes": {},
+		"attributes": {
+			"opacity": "alpha-channel"
+		},
 		"innerBlocks": [],
-		"originalContent": "<hr class=\"wp-block-separator\"/>"
+		"originalContent": "<hr class=\"wp-block-separator has-alpha-channel-opacity\"/>"
 	}
 ]
